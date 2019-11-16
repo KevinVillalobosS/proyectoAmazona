@@ -53,14 +53,19 @@ class SectorController extends Controller
      */
     public function show($id)
     {
-        //
         return Sector::where('id', $id)->get();
-
     }
 
+    public function showAllDonationsFromSector($id){
+        return Sector::find($id)->donations()->get();
+    }
 
-    public function getAllByCatastrophe($catastrophe_id){
-        return Sector::Where('catastrophe_id',$catastrophe_id)->get();
+    public function showAllVehiclesFromSector($id){
+        return Sector::find($id)->vehicles()->get();
+    }
+
+    public function showCatastrophe($sector_id){
+        return Sector::find($sector_id)->catastrophe;
     }
 
 

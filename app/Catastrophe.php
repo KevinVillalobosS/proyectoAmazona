@@ -13,8 +13,8 @@ class Catastrophe extends Model
     protected $fillable = ['catastrophe_name', 'status','description','date'];
 
         //declaring a one to many relationship
-        public function sector(){
-            return $this->hasMany('App\Sector','catastrophe_id');
+        public function sectors(){
+            return $this->hasMany('App\Sector', 'catastrophe_id');
         }
     
 

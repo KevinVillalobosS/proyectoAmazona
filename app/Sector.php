@@ -13,12 +13,17 @@ class Sector extends Model
 
     //declaring a one to many relationship
     public function catastrophe(){
-        return $this->belongsTo('App\Catastrophe');
+        return $this->belongsTo('App\Catastrophe', 'catastrophe_id');
+    }
+
+    //declaring a one to many relationship
+    public function donations(){
+        return $this->hasMany('App\Donation');
     }
 
      //declaring a one to many relationship
-     public function donation(){
-        return $this->hasMany('App\Donation');
+     public function vehicles(){
+        return $this->hasMany('App\Vehicle');
     }
 
 

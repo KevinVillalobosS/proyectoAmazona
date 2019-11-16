@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\DonationTypes;
+use App\DonationType;
 use Faker\Generator as Faker;
 
-$factory->define(DonationTypes::class, function (Faker $faker) {
+$factory->define(DonationType::class, function (Faker $faker) {
     return [
         //
     ];

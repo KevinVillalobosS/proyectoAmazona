@@ -21,8 +21,9 @@ class CreateDonationsTable extends Migration
             $table->integer('item_quantity');
             $table->string('description',255);
             $table->string('status',15);
+            $table->string('due_date',13);
             $table->foreign('sector_id')->references('id')->on('sectors');
-            //$table->foreign('type_id')->references('id')->on('categories');
+            $table->foreign('type_id')->references('id')->on('donation_types');
             $table->timestamps();
         });
     }

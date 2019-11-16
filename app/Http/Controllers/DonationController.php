@@ -37,13 +37,14 @@ class DonationController extends Controller
     {
         //
         $donation = new Donation;
-        $sector->sector_id = $request->sector_id;
-        $sector->type_id = $request->type_id;
-        $sector->item_name = $request->item_name;
-        $sector->item_quantity = $request->item_quantity;
-        $sector->description = $request->description;
-        $sector->status = $request->status;
-        $sector->save();
+        $donation->sector_id = $request->sector_id;
+        $donation->type_id = $request->type_id;
+        $donation->item_name = $request->item_name;
+        $donation->item_quantity = $request->item_quantity;
+        $donation->description = $request->description;
+        $donation->status = $request->status;
+        $donation->due_date = $request->due_date;
+        $donation->save();
     }
 
     /**
@@ -54,9 +55,16 @@ class DonationController extends Controller
      */
     public function show($id)
     {
-        //
         return Donation::where('id', $id)->get();
+    }
 
+
+    public function showDonationType($donation_id){
+        return Donation::find($donation_id)->donationType;
+    }
+
+    public function showSector($donation_id){
+        return Donation::find($donation_id)->sector;
     }
 
     /**
@@ -67,6 +75,7 @@ class DonationController extends Controller
      */
     public function edit(Donation $donation)
     {
+        
         //
     }
 

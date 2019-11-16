@@ -72,9 +72,9 @@ class CatastropheController extends Controller
     }
 
 
-
-
-
+    public function showAllSectorsFrom($id){
+        return Catastrophe::find($id)->sectors()->get();
+    }
 
 
     /**

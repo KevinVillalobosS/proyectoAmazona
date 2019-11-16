@@ -15,6 +15,7 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('sector_id'); //sector asociado
             $table->string('vehicle_vin',25); //numero de chasis
             $table->string('vehicle_type',12); //Aereo, terrestre, acuatico
             $table->string('vehicle_name',50); //Global Super Tanker

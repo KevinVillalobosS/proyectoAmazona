@@ -36,17 +36,34 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         //
+        $vehicle = new Vehicle;
+        $vehicle->sector_id = $request->sector_id;
+        $vehicle->vehicle_vin = $request->vehicle_vin;
+        $vehicle->vehicle_type = $request->vehicle_type;
+        $vehicle->vehicle_name = $request->vehicle_name;
+        $vehicle->vehicle_brand = $request->vehicle_brand;
+        $vehicle->vehicle_model = $request->vehicle_model;
+        $vehicle->vehicle_year = $request->vehicle_year;
+        $vehicle->vehicle_details = $request->vehicle_details;
+        $vehicle->vehicle_status = $request->vehicle_status;
+        $vehicle->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Vehicle  $vehicle
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
-    {
-        //
+    public function show($id)
+    {        
+        return Vehicle::where('id', $id)->get();
+    }
+
+
+    
+    public function getSector($vehicle_id){
+        return Vehicle::find($vehicle_id)->sector;
     }
 
     /**
